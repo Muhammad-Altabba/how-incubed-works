@@ -131,22 +131,6 @@ class SimpleFooter extends React.Component {
                       BLOCKCHAINS LLC
                     </NavLink>
                   </NavItem>
-                  {/* <NavItem>
-                    <NavLink
-                      href="http://blog.creative-tim.com?ref=adsr-footer"
-                      target="_blank"
-                    >
-                      Blog
-                    </NavLink>
-                  </NavItem> */}
-                  <NavItem>
-                    <NavLink
-                      href="https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE"
-                      target="_blank"
-                    >
-                      License (Website Design)
-                    </NavLink>
-                  </NavItem>
                 </Nav>
               </Col>
             </Row>

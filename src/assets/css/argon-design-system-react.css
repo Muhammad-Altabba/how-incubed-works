@@ -364,6 +364,11 @@ h6, .h6 {
   font-weight: 600;
   line-height: 1.5; }
 
+.display-5 {
+  font-size: 1.0675rem;
+  font-weight: 600;
+  line-height: 1.5; }
+      
 hr {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -10442,7 +10447,8 @@ p {
 .display-1 span,
 .display-2 span,
 .display-3 span,
-.display-4 span {
+.display-4 span ,
+.display-5 span {
   display: block;
   font-weight: 300; }
 

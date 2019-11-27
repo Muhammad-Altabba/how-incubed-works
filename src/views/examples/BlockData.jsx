@@ -39,6 +39,7 @@ import {
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
 import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
+import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
 
 class BlockData extends Component {
   state = { web3: null, latestBlock: null };
@@ -99,50 +100,74 @@ class BlockData extends Component {
   render() {
     return (
       <>
-        <div>{this.state.latestBlock ?
+        <section className="section pb-300 bg-gradient-warning text-white">
+          <Container>
+            <div>{this.state.latestBlock ?
 
-          <Card className="shadow border-0 bg-primary my-3">
-            <CardBody className="py-5">
-              <h4 className="text-white">The Data of the `latest` Block </h4>
-              <Container>
-                <Row>
-                  <Col>
-                    <span className="font-weight-bold">Block Number: </span><br />{this.state.latestBlock.number}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Gas Limit: </span><br />{this.state.latestBlock.gasLimit} 
-                    {/* To get the value in Ether {this.state.web3.utils.fromWei(this.state.latestBlock.gasLimit.toString())} */}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Gas Used: </span><br />{this.state.latestBlock.gasUsed}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Transactions Count: </span><br />{this.state.latestBlock.transactions.length}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Timestamp: </span><br />{new Date(this.state.latestBlock.timestamp * 1000).toUTCString()}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Hash: </span>{this.state.latestBlock.hash}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Receipts Root: </span>{this.state.latestBlock.receiptsRoot}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">State Root: </span>{this.state.latestBlock.stateRoot}
-                  </Col>
-                  <Col>
-                    <span className="font-weight-bold">Transactions Root: </span>{this.state.latestBlock.transactionsRoot}
-                  </Col>
-                </Row>
-              </Container>
-            </CardBody>
-          </Card>
-          :
-          <></>
-        }
-        </div>
-        <JsonRpcMultiFunctionsShow functionName={this.functionName} />
+              <Card className="shadow border-0 bg-primary my-3">
+                <CardBody className="py-5">
+                  <div className="display-4 text-white">The Data of the `latest` Block </div>
+                  <Container>
+                    <Row>
+                      <Col>
+                        <span className="font-weight-bold">Block Number: </span><br />{this.state.latestBlock.number}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Gas Limit: </span><br />{this.state.latestBlock.gasLimit}
+                        {/* To get the value in Ether {this.state.web3.utils.fromWei(this.state.latestBlock.gasLimit.toString())} */}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Gas Used: </span><br />{this.state.latestBlock.gasUsed}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Transactions Count: </span><br />{this.state.latestBlock.transactions.length}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Timestamp: </span><br />{new Date(this.state.latestBlock.timestamp * 1000).toUTCString()}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Hash: </span>{this.state.latestBlock.hash}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Receipts Root: </span>{this.state.latestBlock.receiptsRoot}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">State Root: </span>{this.state.latestBlock.stateRoot}
+                      </Col>
+                      <Col>
+                        <span className="font-weight-bold">Transactions Root: </span>{this.state.latestBlock.transactionsRoot}
+                      </Col>
+                    </Row>
+                  </Container>
+                </CardBody>
+              </Card>
+              :
+              <></>
+            }
+            </div>
+            <JsonRpcMultiFunctionsShow functionName={this.functionName} />
+          </Container>
+          {/* SVG separator */}
+          <div className="separator separator-bottom separator-skew zindex-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="fill-white"
+                points="2560 0 2560 100 0 100"
+              />
+            </svg>
+          </div>
+        </section>
+
+        <section className="section section-lg pt-0 mt--200 text-white">
+          <BehindTheScenes />
+        </section>
       </>
     );
   }

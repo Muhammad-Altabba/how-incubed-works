@@ -31,11 +31,10 @@ class JsonRpcMultiFunctionsShow extends React.Component {
 
     render() {
         return (
-            <>
                 <div style={{ textAlign: 'left' }} >
                     {window.JsonRpcLogs && window.JsonRpcLogs[this.props.functionName] !== undefined && window.JsonRpcLogs[this.props.functionName].length !== 0 ?
                         <div>
-                            <div className="text-white h4 font-weight-bold">Number of calles to Incubed Servers: {window.JsonRpcLogs[this.props.functionName].length}</div>
+                            <h3 className="text-white font-weight-bold">Number of calles to Incubed Servers: {window.JsonRpcLogs[this.props.functionName].length}</h3>
                             {window.JsonRpcLogs[this.props.functionName].map((item, index) => (
                                 <JsonRpcOneFunctionShow key={index} item={item} />
                             ))}
@@ -57,7 +56,6 @@ class JsonRpcMultiFunctionsShow extends React.Component {
                         </Container>
                     }
                 </div>
-            </>
         );
     }
 }

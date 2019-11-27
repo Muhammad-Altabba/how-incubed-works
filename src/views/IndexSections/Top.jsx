@@ -76,7 +76,7 @@ class Top extends React.Component {
                     </p> */}
                     <div className="btn-wrapper mt-5">
                       <Button
-                        className="btn-white btn-icon mb-3 mb-sm-0"
+                        className="btn-white btn-icon mb-3 mb-sm-3"
                         color="default"
                         target="_blank"
                         href="https://in3.readthedocs.io/en/latest/"
@@ -88,9 +88,9 @@ class Top extends React.Component {
                         <span className="btn-inner--text">Read the Docs</span>
                       </Button>{" "}
                       <Button
-                        className="btn-icon mb-3 mb-sm-0"
+                        className="btn-icon mb-3 mb-sm-3"
                         color="github"
-                        href="/samples"
+                        href="/examples"
                         size="lg"
                       >
                         <span className="btn-inner--icon mr-1">
@@ -101,7 +101,7 @@ class Top extends React.Component {
                         </span>
                       </Button>{" "}
                       <Button
-                        className="btn-white btn-icon mb-3 mb-sm-0"
+                        className="btn-white btn-icon mb-3 mb-sm-3"
                         color="default"
                         target="_blank"
                         href="https://www.trufflesuite.com/boxes"
@@ -116,7 +116,35 @@ class Top extends React.Component {
                           />
                         </span>
                         <span className="btn-inner--text">
-                          <span className="text-warning mr-1">Develop with In3</span>
+                          <span className="mr-1">Develop with In3</span>
+                        </span>
+                      </Button>{" "}
+                      <Button
+                        className="btn-white btn-icon mb-3 mb-sm-3"
+                        color="default"
+                        target="_blank"
+                        href="https://in3-setup.slock.it/"
+                        size="lg"
+                      >
+                        <span className="btn-inner--icon mr-1">
+                          <i className="fa fa-magic" />
+                        </span>
+                        <span className="btn-inner--text">
+                          <span className="text-warning mr-1">Incubed Server Setup Wizard</span>
+                        </span>
+                      </Button>{" "}
+                      <Button
+                        className="btn-white btn-icon mb-3 mb-sm-3"
+                        color="default"
+                        target="_blank"
+                        href="https://in3.slock.it/"
+                        size="lg"
+                      >
+                        <span className="btn-inner--icon mr-1">
+                          <i className="fa fa-tachometer" />
+                        </span>
+                        <span className="btn-inner--text">
+                          <span className="text-warning mr-1">Incubed Servers Dashboard</span>
                         </span>
                       </Button>
                     </div>

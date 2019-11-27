@@ -33,7 +33,8 @@ import {
     InputGroup,
     Container,
     Row,
-    Col
+    Col,
+    UncontrolledAlert
 } from "reactstrap";
 
 // core components
@@ -57,7 +58,7 @@ class Examples extends React.Component {
                 <main ref="main">
                     <div className="position-relative">
                         {/* shape Hero */}
-                        <section className="section section-lg section-shaped pb-250">
+                        <section className="section section-sm section-shaped pb-250">
                             <div className="shape shape-style-1 shape-default">
                                 <span />
                                 <span />
@@ -103,7 +104,7 @@ class Examples extends React.Component {
                         </section>
                         {/* 1st Hero Variation */}
                     </div>
-                    <section className="section section-lg pt-lg-0 mt--200">
+                    <section className="section section pt-lg-0 mt--200">
                         <Container>
                             <Row className="justify-content-center">
                                 <Col lg="12">
@@ -115,7 +116,7 @@ class Examples extends React.Component {
                                                         <i className="fa fa-square" />
                                                     </div>
                                                     <h6 className="text-primary text-uppercase">
-                                                    Block Proof
+                                                        Block Proof
                           </h6>
                                                     <p className="description mt-3">
                                                         Get a verified data of a block.
@@ -134,7 +135,7 @@ class Examples extends React.Component {
                           </Button>
                                                 </CardBody>
                                             </Card>
-                                       </Col>
+                                        </Col>
                                         {/*  <Col lg="4">
                                             <Card className="card-lift--hover shadow border-0">
                                                 <CardBody className="py-5">
@@ -211,6 +212,22 @@ class Examples extends React.Component {
                                 </Col>
                             </Row>
                         </Container>
+
+                    </section>
+                    <section className="section pt-0">
+                        <Container>
+                            <UncontrolledAlert color="warning" fade={false}>
+                                <span className="alert-inner--icon">
+                                    <i className="fa fa-lightbulb-o fa-lg" />
+                                </span>
+                                <span className="alert-inner--text ml-1">
+                                    <strong>Info!</strong> {" "}
+                                    Depending on the `Json RPC` method called, different proofs are needed, which are described in {" "}
+                                    <strong><a target="_blank" className="text-white" href="https://in3.readthedocs.io/en/develop/Ethereum-Verification-and-MerkleProof.html">the documentation.</a></strong>
+                                </span>
+                            </UncontrolledAlert>
+                        </Container>
+
                     </section>
 
                 </main>

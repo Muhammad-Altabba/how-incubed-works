@@ -12,7 +12,7 @@ const getWeb3 = (withVerification) =>
         const web3 = new Web3(new In3Client({
           proof: 'standard',  //‘none’ for no verification, ‘standard’ for verifying all important fields, ‘full’ veryfying all fields even if this means a high payloaad 
           signatureCount: 2,
-          requestCount: 2,
+          requestCount: 3,
           chainId: 'mainnet',
           timeout: 30000,
           replaceLatestBlock: 6

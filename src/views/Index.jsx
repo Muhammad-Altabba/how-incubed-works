@@ -59,16 +59,16 @@ class Index extends React.Component {
         <DemoNavbar />
         <main ref="main">
           <Top />
-          <section className="section">
+          {/* <section className="section">
             <Container>
-              {/* <Menus /> */}
+              <Menus />
             </Container>
           </section>
           <section className="section section-components">
             <Container>              
-              {/* <Tabs />   */}
+              <Tabs />  
             </Container>
-          </section>
+          </section> */}
         </main>
         <SimpleFooter />
       </>

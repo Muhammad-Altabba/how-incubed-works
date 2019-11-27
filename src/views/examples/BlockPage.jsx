@@ -57,7 +57,7 @@ class BlockPage extends React.Component {
         <main ref="main">
           <div className="position-relative">
             {/* shape Hero */}
-            <section className="section section-lg section-shaped">
+            <section className="section section-sm section-shaped">
               <div className="shape shape-style-1 shape-default">
                 <span />
                 <span />
@@ -69,7 +69,7 @@ class BlockPage extends React.Component {
                 <span />
                 <span />
               </div>
-              <Container className="py-lg-md d-flex">
+              <Container className="pt-lg-md d-flex">
                 <div className="col px-0">
                   <Row>
                     <Col lg="6">
@@ -93,7 +93,7 @@ class BlockPage extends React.Component {
                 </div>
               </Container>
               {/* SVG separator */}
-              <div className="separator separator-bottom separator-skew">
+              {/* <div className="separator separator-bottom separator-skew">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="none"
@@ -107,16 +107,13 @@ class BlockPage extends React.Component {
                     points="2560 0 2560 100 0 100"
                   />
                 </svg>
-              </div>
+              </div> */}
             </section>
             {/* 1st Hero Variation */}
           </div>
-          <section className="section pb-0 bg-gradient-warning text-white pb-100">
-            <Container>
-              <BlockData />
-            </Container>
-            {/* SVG separator */}
-            {/* <div className="separator separator-bottom separator-skew zindex-100">
+          <BlockData />
+          {/* SVG separator */}
+          {/* <div className="separator separator-bottom separator-skew zindex-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 preserveAspectRatio="none"
@@ -131,7 +128,6 @@ class BlockPage extends React.Component {
                 />
               </svg>
             </div> */}
-          </section>
         </main>
         <SimpleFooter />
       </>
