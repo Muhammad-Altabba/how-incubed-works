@@ -45,6 +45,8 @@ $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
+$gold:    #ffd700 !default;
+$goldenrod:#aa6600  !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
@@ -60,6 +62,8 @@ $colors: map-merge(
     "red":        $red,
     "orange":     $orange,
     "yellow":     $yellow,
+    "gold":     $gold,
+    "goldenrod":  $goldenrod,
     "green":      $green,
     "teal":       $teal,
     "cyan":       $cyan,
@@ -99,12 +103,25 @@ $theme-colors: map-merge(
     "red":        $red,
     "orange":     $orange,
     "yellow":     $yellow,
+    "goldenrod":  $goldenrod,
+    "gold":       $gold,
     "green":      $green,
     "teal":       $teal,
     "cyan":       $cyan,
     "white":      $white,
     "gray":       $gray-600,
-    "gray-dark":  $gray-800
+    "gray-dark":  $gray-800,
+
+    
+    "gray-100":   $gray-100,
+    "gray-200":   $gray-200,
+    "gray-300":   $gray-300,
+    "gray-400":   $gray-400,
+    "gray-500":   $gray-500,
+    "gray-600":   $gray-600,
+    "gray-700":   $gray-700,
+    "gray-800":   $gray-800,
+    "gray-900":   $gray-900
   ),
   $theme-colors
 );

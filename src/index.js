@@ -27,7 +27,12 @@ import Index from "views/Index.jsx";
 import Home from "views/Home.jsx";
 import Landing from "views/examples/Landing.jsx";
 import Examples from "views/Examples.jsx";
-import BlockPage from "views/examples/BlockPage.jsx";
+import BlockProofPage from "views/examples/BlockProofPage.jsx";
+import TransactionProofPage from "views/examples/TransactionProofPage.jsx";
+import ReceiptProofPage from "views/examples/ReceiptProofPage.jsx";
+import LogProofPage from "views/examples/LogProofPage.jsx";
+import AccountProofPage from "views/examples/AccountProofPage.jsx";
+import CallProofPage from "views/examples/CallProofPage.jsx";
 import Login from "views/examples/Login.jsx";
 import Profile from "views/examples/Profile.jsx";
 import Register from "views/examples/Register.jsx";
@@ -47,9 +52,34 @@ ReactDOM.render(
         render={props => <Examples {...props} />}
       />
       <Route
-        path="/examples/block"
+        path="/examples/blockproof"
         exact
-        render={props => <BlockPage {...props} />}
+        render={props => <BlockProofPage {...props} />}
+      />
+      <Route
+        path="/examples/transactionproof"
+        exact
+        render={props => <TransactionProofPage {...props} />}
+      />
+      <Route
+        path="/examples/receiptproof"
+        exact
+        render={props => <ReceiptProofPage {...props} />}
+      />
+      <Route
+        path="/examples/logproof"
+        exact
+        render={props => <LogProofPage {...props} />}
+      />
+      <Route
+        path="/examples/accountproof"
+        exact
+        render={props => <AccountProofPage {...props} />}
+      />
+      <Route
+        path="/examples/callproof"
+        exact
+        render={props => <CallProofPage {...props} />}
       />
       <Route
         path="/landing-page"

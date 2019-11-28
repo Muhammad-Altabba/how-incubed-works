@@ -1,49 +1,20 @@
-/*!
-
-=========================================================
-* Argon Design System React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-// nodejs library that concatenates classes
-import classnames from "classnames";
 
 // reactstrap components
 import {
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  CardImg,
-  FormGroup,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col
 } from "reactstrap";
 
 // core components
-import DemoNavbar from "components/Navbars/DemoNavbar.jsx";
+import TopNavbar from "components/Navbars/TopNavbar.jsx";
 import SimpleFooter from "components/Footers/SimpleFooter.jsx";
 
 // index page sections
-import BlockData from "./BlockData.jsx";
+import TransactionProofData from "./TransactionProofData.jsx";
 
-class BlockPage extends React.Component {
+class TransactionProofPage extends React.Component {
   state = {};
   componentDidMount() {
     document.documentElement.scrollTop = 0;
@@ -53,7 +24,7 @@ class BlockPage extends React.Component {
   render() {
     return (
       <>
-        <DemoNavbar />
+        <TopNavbar />
         <main ref="main">
           <div className="position-relative">
             {/* shape Hero */}
@@ -74,19 +45,18 @@ class BlockPage extends React.Component {
                   <Row>
                     <Col lg="6">
                       <h1 className="display-3 text-white">
-                        Block Proof example
+                      Transaction Proof example
                       </h1>
                       <div className="lead text-white">
                         <p className="lead text-white">
-                          BlockProofs are used whenever you want to read data of a Block and verify them. This would be:
+                        TransactionProofs are used for the following transaction-methods:
                         </p>
                         <ul>
-                          <li>eth_getBlockTransactionCountByHash</li>
-                          <li>eth_getBlockTransactionCountByNumber</li>
-                          <li>eth_getBlockByHash</li>
-                          <li>eth_getBlockByNumber</li>
+                          <li>eth_getTransactionByHash</li>
+                          <li>eth_getTransactionByBlockHashAndIndex</li>
+                          <li>eth_getTransactionByBlockNumberAndIndex</li>
                         </ul>
-                        <p className="display-4 text-white">In this sample, Incubed Client will ask for the `latest` block from Incubed Servers.</p>
+                        <p className="display-4 text-white">In this sample, Incubed Client will ask for a `Transaction by Hash` from Incubed Servers.</p>
                       </div>
                     </Col>
                   </Row>
@@ -111,7 +81,7 @@ class BlockPage extends React.Component {
             </section>
             {/* 1st Hero Variation */}
           </div>
-          <BlockData />
+          <TransactionProofData />
           {/* SVG separator */}
           {/* <div className="separator separator-bottom separator-skew zindex-100">
               <svg
@@ -135,4 +105,4 @@ class BlockPage extends React.Component {
   }
 }
 
-export default BlockPage;
+export default TransactionProofPage;

@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Argon Design System React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link } from "react-router-dom";
 // JavaScript plugin that hides or shows a component based on your scroll
@@ -39,7 +22,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-class DemoNavbar extends React.Component {
+class TopNavbar extends React.Component {
   componentDidMount() {
     let headroom = new Headroom(document.getElementById("navbar-main"));
     // initialise
@@ -88,23 +71,33 @@ class DemoNavbar extends React.Component {
                     How it Works!
                   </NavbarBrand>
                   <UncontrolledDropdown nav >
-                    <DropdownToggle nav>
-                      <span onClick={() => { window.location.href = '/examples' }}>Examples</span>
+                    <DropdownToggle nav onClick={() => { window.location.href = '/examples' }}>
+                      <span >Examples</span>
                     </DropdownToggle>
+                    {/* 
+                    Note: For some reason if those links are used, Web3 instantiation has some issues. To check after uncomment, try visit multible pages after each others.
+                    For now this sub-menu is not preset.
+
                     <DropdownMenu>
-                      <DropdownItem to="/examples/block/" tag={Link}>
+                      <DropdownItem to="/examples/blockproof/" tag={Link}>
                         Block Proof
                       </DropdownItem>
-                      {/* <DropdownItem to="/profile-page" tag={Link}>
-                        Profile
+                      <DropdownItem to="/examples/transactionproof/" tag={Link}>
+                        Transaction Proof
                       </DropdownItem>
-                      <DropdownItem to="/login-page" tag={Link}>
-                        Login
+                      <DropdownItem to="/examples/receiptproof/" tag={Link}>
+                        Receipt Proof
                       </DropdownItem>
-                      <DropdownItem to="/register-page" tag={Link}>
-                        Register
-                      </DropdownItem> */}
-                    </DropdownMenu>
+                      <DropdownItem to="/examples/logproof/" tag={Link}>
+                        Log Proof
+                      </DropdownItem>
+                      <DropdownItem to="/examples/accountproof/" tag={Link}>
+                        Account Proof
+                      </DropdownItem>
+                      <DropdownItem to="/examples/callproof/" tag={Link}>
+                        Call Proof
+                      </DropdownItem>
+                    </DropdownMenu> */}
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
@@ -180,6 +173,50 @@ class DemoNavbar extends React.Component {
                             </h5>
                             <p className="description d-none d-md-inline-block mb-0">
                               The Future of Sharing Rent and share anything with the USN, the first decentralized application
+                            </p>
+                          </Media>
+                        </Media>
+                      </div>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                  <UncontrolledDropdown nav>
+                    <DropdownToggle nav>
+                      <i className="ni ni-ui-04 d-lg-none mr-1" />
+                      <span className="nav-link-inner--text">Other Links</span>
+                    </DropdownToggle>
+                    <DropdownMenu className="dropdown-menu-xl">
+                      <div className="dropdown-menu-inner">
+                        <Media
+                          className="d-flex align-items-center"
+                          href="https://in3.slock.it/"
+                          target="_blank"
+                        >
+                          <div className="icon icon-shape bg-gradient-warning rounded-circle text-white">
+                            <i className="fa fa-tachometer" />
+                          </div>
+                          <Media body className="ml-3">
+                            <h6 className="heading text-warning mb-md-1">
+                              Incubed Server Dashboard
+                            </h6>
+                            <p className="description d-none d-md-inline-block mb-0">
+                              Typescript-version of the in3 client. The a minimal verification client for blockchain networks.
+                            </p>
+                          </Media>
+                        </Media>
+                        <Media
+                          className="d-flex align-items-center"
+                          href="https://in3-setup.slock.it/"
+                          target="_blank"
+                        >
+                          <div className="icon icon-shape bg-gradient-success rounded-circle text-white">
+                            <i className="fa fa-magic" />
+                          </div>
+                          <Media body className="ml-3">
+                            <h6 className="heading text-success mb-md-1">
+                              Incubed Server Setup Wizard
+                            </h6>
+                            <p className="description d-none d-md-inline-block mb-0">
+                              The Incubed Node/Server. For callers, this is an Ethereum full node but with extra IN3 features.
                             </p>
                           </Media>
                         </Media>
@@ -277,4 +314,4 @@ class DemoNavbar extends React.Component {
   }
 }
 
-export default DemoNavbar;
+export default TopNavbar;

@@ -11,7 +11,7 @@ class InterceptAndLog {
         XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
         XMLHttpRequest.prototype.send = function (request) {
             this.addEventListener("load", function () { // Note: this.addEventListener("progress",... is the same but "progress" willl have a truncated response, if it is large!
-                if (request == undefined)
+                if (!request)
                     return;
                 let requestObject = JSON.parse(request);
                 if (Array.isArray(requestObject))
@@ -43,7 +43,7 @@ class InterceptAndLog {
 
     static truncateAndFixLargJson(originalResponse, maxLength) {
         let responseObject = {};
-        if (originalResponse == 'Internal Server Error')
+        if (originalResponse === 'Internal Server Error')
             return originalResponse;
         let response;
         if (originalResponse.length > maxLength) {
@@ -80,11 +80,13 @@ class InterceptAndLog {
                     case '}':
                         ending = ending.slice(1);
                         break;
+                    default:
+                        ;
                 }
             }
-            if (ending[0] == '}')
+            if (ending[0] === '}')
                 response += ', "Note": ' + truncationNote;
-            else if (ending[0] == ']')
+            else if (ending[0] === ']')
                 response += ', ' + truncationNote;
             response += ending;
             try {

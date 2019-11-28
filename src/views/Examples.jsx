@@ -16,8 +16,6 @@
 
 */
 import React from "react";
-// nodejs library that concatenates classes
-import classnames from "classnames";
 
 // reactstrap components
 import {
@@ -25,12 +23,6 @@ import {
     Button,
     Card,
     CardBody,
-    CardImg,
-    FormGroup,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Container,
     Row,
     Col,
@@ -38,11 +30,8 @@ import {
 } from "reactstrap";
 
 // core components
-import DemoNavbar from "components/Navbars/DemoNavbar.jsx";
+import TopNavbar from "components/Navbars/TopNavbar.jsx";
 import SimpleFooter from "components/Footers/SimpleFooter.jsx";
-
-// index page sections
-import Download from "./IndexSections/Download.jsx";
 
 class Examples extends React.Component {
     state = {};
@@ -54,7 +43,7 @@ class Examples extends React.Component {
     render() {
         return (
             <>
-                <DemoNavbar />
+                <TopNavbar />
                 <main ref="main">
                     <div className="position-relative">
                         {/* shape Hero */}
@@ -112,102 +101,167 @@ class Examples extends React.Component {
                                         <Col lg="4">
                                             <Card className="card-lift--hover shadow border-0">
                                                 <CardBody className="py-5">
-                                                    <div className="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                                                    <div className="icon icon-shape icon-shape-warning rounded-circle mb-4">
                                                         <i className="fa fa-square" />
                                                     </div>
-                                                    <h6 className="text-primary text-uppercase">
+                                                    <h6 className="text-warning text-uppercase">
                                                         Block Proof
-                          </h6>
+                                                    </h6>
                                                     <p className="description mt-3">
                                                         Get a verified data of a block.
-                          </p>
+                                                    </p>
                                                     <div>
-                                                        <Badge color="primary" pill className="mr-1">
+                                                        <Badge color="warning" pill className="mr-1">
                                                             Block Proof
-                            </Badge>
+                                                        </Badge>
                                                     </div>
                                                     <Button
                                                         className="mt-4"
-                                                        color="primary"
-                                                        href="/examples/block/"
+                                                        color="warning"
+                                                        href="/examples/blockproof/"
                                                     >
                                                         Try it!
-                          </Button>
-                                                </CardBody>
-                                            </Card>
-                                        </Col>
-                                        {/*  <Col lg="4">
-                                            <Card className="card-lift--hover shadow border-0">
-                                                <CardBody className="py-5">
-                                                    <div className="icon icon-shape icon-shape-success rounded-circle mb-4">
-                                                        <i className="ni ni-istanbul" />
-                                                    </div>
-                                                    <h6 className="text-success text-uppercase">
-                                                        Build Something
-                          </h6>
-                                                    <p className="description mt-3">
-                                                        Argon is a great free UI package based on Bootstrap
-                                                        4 that includes the most important components and
-                                                        features.
-                          </p>
-                                                    <div>
-                                                        <Badge color="success" pill className="mr-1">
-                                                            business
-                            </Badge>
-                                                        <Badge color="success" pill className="mr-1">
-                                                            vision
-                            </Badge>
-                                                        <Badge color="success" pill className="mr-1">
-                                                            success
-                            </Badge>
-                                                    </div>
-                                                    <Button
-                                                        className="mt-4"
-                                                        color="success"
-                                                        href="#pablo"
-                                                        onClick={e => e.preventDefault()}
-                                                    >
-                                                        Learn more
-                          </Button>
+                                                    </Button>
                                                 </CardBody>
                                             </Card>
                                         </Col>
                                         <Col lg="4">
                                             <Card className="card-lift--hover shadow border-0">
                                                 <CardBody className="py-5">
-                                                    <div className="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                                                        <i className="ni ni-planet" />
+                                                    <div className="icon icon-shape icon-shape-success rounded-circle mb-4">
+                                                        <i className="fa fa-exchange" />
                                                     </div>
-                                                    <h6 className="text-warning text-uppercase">
-                                                        Prepare Launch
-                          </h6>
+                                                    <h6 className="text-success text-uppercase">
+                                                        Transaction Proof
+                                                    </h6>
                                                     <p className="description mt-3">
-                                                        Argon is a great free UI package based on Bootstrap
-                                                        4 that includes the most important components and
-                                                        features.
-                          </p>
+                                                        Get a verified Transaction data.
+                                                    </p>
                                                     <div>
-                                                        <Badge color="warning" pill className="mr-1">
-                                                            marketing
-                            </Badge>
-                                                        <Badge color="warning" pill className="mr-1">
-                                                            product
-                            </Badge>
-                                                        <Badge color="warning" pill className="mr-1">
-                                                            launch
-                            </Badge>
+                                                        <Badge color="success" pill className="mr-1">
+                                                            Transaction Proof
+                                                        </Badge>
                                                     </div>
                                                     <Button
                                                         className="mt-4"
-                                                        color="warning"
-                                                        href="#pablo"
-                                                        onClick={e => e.preventDefault()}
+                                                        color="success"
+                                                        href="/examples/transactionproof/"
                                                     >
-                                                        Learn more
-                          </Button>
+                                                        Try it!
+                                                    </Button>
                                                 </CardBody>
                                             </Card>
-                                        </Col> */}
+                                        </Col>
+                                        <Col lg="4">
+                                            <Card className="card-lift--hover shadow border-0">
+                                                <CardBody className="py-5">
+                                                    <div className="icon icon-shape icon-shape-gray-700 rounded-circle mb-4">
+                                                        <i className="fa fa-file-o" />
+                                                    </div>
+                                                    <h6 className="text-gray-700 text-uppercase">
+                                                        Receipt Proof
+                                                    </h6>
+                                                    <p className="description mt-3">
+                                                        Get a verified Transaction Receipt.
+                                                    </p>
+                                                    <div>
+                                                        <Badge color="gray-700" pill className="mr-1">
+                                                            Receipt Proof
+                                                        </Badge>
+                                                    </div>
+                                                    <Button
+                                                        className="mt-4"
+                                                        color="gray-700"
+                                                        href="/examples/receiptproof/"
+                                                    >
+                                                        Try it!
+                                                    </Button>
+                                                </CardBody>
+                                            </Card>
+                                        </Col>
+                                    </Row>
+                                    <Row className="row-grid">
+                                        <Col lg="4">
+                                            <Card className="card-lift--hover shadow border-0">
+                                                <CardBody className="py-5">
+                                                    <div className="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                                                        <i className="fa fa-calendar-check-o" />
+                                                    </div>
+                                                    <h6 className="text-primary text-uppercase">
+                                                        Log Proof
+                                                    </h6>
+                                                    <p className="description mt-3">
+                                                        Get a verified Log or Event.
+                                                    </p>
+                                                    <div>
+                                                        <Badge color="primary" pill className="mr-1">
+                                                            Log Proof
+                                                        </Badge>
+                                                    </div>
+                                                    <Button
+                                                        className="mt-4"
+                                                        color="primary"
+                                                        href="/examples/logproof/"
+                                                    >
+                                                        Try it!
+                                                    </Button>
+                                                </CardBody>
+                                            </Card>
+                                        </Col>
+                                        <Col lg="4">
+                                            <Card className="card-lift--hover shadow border-0">
+                                                <CardBody className="py-5">
+                                                    <div className="icon icon-shape icon-shape-indigo rounded-circle mb-4">
+                                                        <i className="fa fa-user" />
+                                                    </div>
+                                                    <h6 className="text-indigo text-uppercase">
+                                                        Account Proof
+                                                    </h6>
+                                                    <p className="description mt-3">
+                                                        Get a verified Account data.
+                                                    </p>
+                                                    <div>
+                                                        <Badge color="indigo" pill className="mr-1">
+                                                            Account Proof
+                                                        </Badge>
+                                                    </div>
+                                                    <Button
+                                                        className="mt-4"
+                                                        color="indigo"
+                                                        href="/examples/accountproof/"
+                                                    >
+                                                        Try it!
+                                                    </Button>
+                                                </CardBody>
+                                            </Card>
+                                        </Col>
+                                        <Col lg="4">
+                                            <Card className="card-lift--hover shadow border-0">
+                                                <CardBody className="py-5">
+                                                    <div className="icon icon-shape icon-shape-goldenrod rounded-circle mb-4">
+                                                        <i className="fa fa-eye" />
+                                                    </div>
+                                                    <h6 className="text-goldenrod text-uppercase">
+                                                        Call Proof
+                                                    </h6>
+                                                    <p className="description mt-3">
+                                                        Get a verified data of an Ethereum Solidity read-only method call.
+                                                    </p>
+                                                    <div>
+                                                        <Badge color="goldenrod" pill className="mr-1">
+                                                            Call Proof
+                                                        </Badge>
+                                                    </div>
+                                                    <Button
+                                                        className="mt-4"
+                                                        color="goldenrod"
+                                                        href="/examples/callproof/"
+                                                    >
+                                                        Try it!
+                                                    </Button>
+                                                </CardBody>
+                                            </Card>
+                                        </Col>
                                     </Row>
                                 </Col>
                             </Row>
@@ -223,7 +277,7 @@ class Examples extends React.Component {
                                 <span className="alert-inner--text ml-1">
                                     <strong>Info!</strong> {" "}
                                     Depending on the `Json RPC` method called, different proofs are needed, which are described in {" "}
-                                    <strong><a target="_blank" className="text-white" href="https://in3.readthedocs.io/en/develop/Ethereum-Verification-and-MerkleProof.html">the documentation.</a></strong>
+                                    <strong><a target="_blank" rel="noopener noreferrer" className="text-white" href="https://in3.readthedocs.io/en/develop/Ethereum-Verification-and-MerkleProof.html">the documentation.</a></strong>
                                 </span>
                             </UncontrolledAlert>
                         </Container>

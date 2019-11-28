@@ -1,18 +1,7 @@
-import React, { useState } from 'react';
-// reactstrap components
+import React from 'react';
 
 // reactstrap components
 import {
-    Badge,
-    Button,
-    Card,
-    CardBody,
-    CardImg,
-    FormGroup,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Container,
     Row,
     Col
@@ -23,11 +12,6 @@ import JsonRpcOneFunctionShow from './JsonRpcOneFunctionShow.jsx';
 import ReactLoading from 'react-loading';
 
 class JsonRpcMultiFunctionsShow extends React.Component {
-    state = { JsonRpcLog: null };
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (

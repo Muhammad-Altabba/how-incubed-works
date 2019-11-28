@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Collapse,
     Button,
@@ -13,9 +13,6 @@ class JsonRpcOneFunctionShow extends React.Component {
     state = {
         isOpen: false
     };
-    constructor(props) {
-        super(props);
-    }
 
     toggle = () => this.setState({ isOpen: !this.state.isOpen });
 

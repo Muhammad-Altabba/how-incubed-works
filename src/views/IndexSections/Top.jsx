@@ -49,7 +49,7 @@ class Top extends React.Component {
                     </h1>
                     <div>
                       <div className="embed-responsive embed-responsive-16by9">
-                        <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/wlUlypmt6Oo"></iframe>
+                        <iframe title="How Incubed Works?" className="embed-responsive-item" src="https://www.youtube.com/embed/wlUlypmt6Oo"></iframe>
                       </div>
                     </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
-import DemoNavbar from "components/Navbars/DemoNavbar.jsx";
+import TopNavbar from "components/Navbars/TopNavbar.jsx";
 import CardsFooter from "components/Footers/CardsFooter.jsx";
 import Hero from "./IndexSections/Hero.jsx";
 import Buttons from "./IndexSections/Buttons.jsx";
@@ -30,7 +30,7 @@ export class Home extends React.Component {
   }
   render() {
     return (<>
-      <DemoNavbar />
+      <TopNavbar />
       <main ref="main">
         <Hero />
         <Buttons />

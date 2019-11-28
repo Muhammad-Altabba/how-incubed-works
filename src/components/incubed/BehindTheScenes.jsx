@@ -1,33 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 // reactstrap components
 
 // reactstrap components
 import {
-    Badge,
-    Button,
     Card,
     CardBody,
-    CardImg,
-    FormGroup,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Container,
     Row,
     Col
 } from "reactstrap";
 
-import JsonRpcOneFunctionShow from './JsonRpcOneFunctionShow.jsx';
-
-import ReactLoading from 'react-loading';
 
 class BehindTheScenes extends React.Component {
-    state = { JsonRpcLog: null };
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (
@@ -77,7 +61,7 @@ class BehindTheScenes extends React.Component {
                 </Row>
                 <Row className="justify-content-start">
                   <Col className="col-3">
-                    <Card className="shadow shadow-lg--hover mt--100">
+                    <Card className="shadow shadow-lg--hover mt--150">
                       <CardBody>
                         <Container>
                           <Row className="justify-content-start align-items-center">
@@ -101,7 +85,7 @@ class BehindTheScenes extends React.Component {
                               <div>
                                 However, it alway recommended to {" "}
                                 <a className="text-gray-dark font-weight-700"
-                                  target="_blank"
+                                  target="_blank" rel="noopener noreferrer" 
                                   href="https://in3.readthedocs.io/en/latest/">Read the Docs</a>.
                                 </div>
                             </Col>
