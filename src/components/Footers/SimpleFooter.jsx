@@ -102,15 +102,16 @@ class SimpleFooter extends React.Component {
             <hr />
             <Row className=" align-items-center justify-content-md-between">
               <Col md="6">
+                <div class="copyright">© 2019 <a href="https://www.creative-tim.com?ref=adsr-footer" target="_blank">Creative Tim</a>.</div>
                 <div className="copyright">
                   © {new Date().getFullYear()}{" "}
                   <a
                     href="https://slock.it"
                     target="_blank"
                   >
-                     Slock.it GmbH - A Blockchains Company
+                    Slock.it GmbH - A Blockchains Company.
                   </a>
-                  
+
                 </div>
               </Col>
               <Col md="6">

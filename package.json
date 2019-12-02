@@ -1,13 +1,23 @@
 {
-  "name": "argon-design-system-react",
+  "name": "how-incubed-works",
   "version": "1.0.0",
   "description": "React version of Argon Design System by Creative Tim",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/creativetimofficial/argon-design-system-react.git"
   },
   "keywords": [
+    "blockchain",
+    "dapp",
+    "ethereum",
+    "web3",
+    "incubed",
+    "in3",
+    "trustless",
+    "decentralized",
+    "how-incubed-works",
     "react",
     "reactjs",
     "argon",
@@ -18,7 +28,6 @@
     "argon-design-react",
     "kit",
     "react-kit",
-    "argon-design-system",
     "argon-design-system-react",
     "design-system-react"
   ],
@@ -31,12 +40,20 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-babel": "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/components --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "compile-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.css",
     "minify-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.min.css --output-style compressed",
     "map-sass": "node-sass src/assets/scss/argon-design-system-react.scss src/assets/css/argon-design-system-react.css --source-map true"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "env",
+      "stage-2"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -71,6 +88,10 @@
     "@types/googlemaps": "3.30.19",
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.8.16",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "typescript": "3.4.5"
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-// reactstrap components
 
 // reactstrap components
 import {
@@ -39,17 +38,6 @@ class BehindTheScenes extends React.Component {
                     </ul>
                     <p>Note: Incubed Servers (Nodes) cannot provide fake signatures since there are always <strong>`watch-dogs`</strong> who will be pleased to get the node's deposits in such a case (anyone can act as a watchdog!).</p>
                   </Col>
-                  {/* <Col className="ml-lg-auto" lg="3">
-                    <Button
-                      block
-                      className="btn-white"
-                      color="default"
-                      href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page"
-                      size="lg"
-                    >
-                      Download React
-                </Button>
-                  </Col> */}
                 </Row>
                 <Row>
                   <Col>
@@ -60,9 +48,9 @@ class BehindTheScenes extends React.Component {
                     /></Col>
                 </Row>
                 <Row className="justify-content-start">
-                  <Col className="col-3">
-                    <Card className="shadow shadow-lg--hover mt--150">
-                      <CardBody>
+                  <Col className="col-5">
+                    <Card className="shadow shadow-lg--hover mt--100">
+                      <CardBody className="card-body px-md-4 px-lg-4 px-xl-5 px-2">
                         <Container>
                           <Row className="justify-content-start align-items-center">
                             <Col className="col-md-auto px-0">
