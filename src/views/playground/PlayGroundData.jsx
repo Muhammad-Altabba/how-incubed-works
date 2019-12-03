@@ -9,7 +9,7 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledAlert,
+  Alert,
   FormGroup,
   Form,
   Input,
@@ -28,7 +28,8 @@ class PlayGroundData extends Component {
   state = {
     web3: null, transaction: null, transactionHash: '0xfc2786e12ba6f9f25587e618a0fbc407bf34afce137a1f695fcda3a1dacbe3eb',
     sampleRequest: '', sampleResponse: '',
-    userRequest: '', userResponse: ''
+    userRequest: '', userResponse: '',
+    resultOfCheck: '', isUserInputVerified: true
   };
   functionName = 'eth_getTransactionByHash';
 
@@ -68,13 +69,15 @@ class PlayGroundData extends Component {
           console.log('Transaction for the transaction ' + this.state.transactionHash + ':');
           console.log(transaction);
           this.setState({ transaction: transaction });
-          
+
           const request = JSON.stringify(window.JsonRpcLogs[this.functionName][0].Request, null, 4);
           const response = JSON.stringify(window.JsonRpcLogs[this.functionName][0].Response, null, 4);
-          
-          this.setState({transaction: transaction,
-            sampleRequest:  request, sampleResponse: response,
-            userRequest: request, userResponse: response});
+
+          this.setState({
+            transaction: transaction,
+            sampleRequest: request, sampleResponse: response,
+            userRequest: request, userResponse: response
+          });
 
         }, (error) => {
           console.log('Error happen when getting the transaction ' + this.state.transactionHash + '!');
@@ -91,14 +94,14 @@ class PlayGroundData extends Component {
     let request = {};
     let response = {};
     try {
-      request = JSON.parse(this.state.userRequest);      
+      request = JSON.parse(this.state.userRequest);
     } catch (error) {
       console.log('Not valid JSON for Request!');
       return;
     }
 
     try {
-      response = JSON.parse(this.state.userResponse); 
+      response = JSON.parse(this.state.userResponse);
     } catch (error) {
       console.log('Not valid JSON for Response!');
       return;
@@ -109,9 +112,11 @@ class PlayGroundData extends Component {
       console.log(await new In3Client().verifyOnTheFly(request, response));
       console.log('Verify on the Fly:');
       console.log(await verifyOnTheFly(request, response));
+
+      this.setState({ resultOfCheck: 'The given response is valid for the given request.', isUserInputVerified: true });
     } catch (error) {
       console.log(error.message)
-      // console.log(error)
+      this.setState({ resultOfCheck: error.message, isUserInputVerified: false });
     }
   }
   render() {
@@ -165,14 +170,14 @@ class PlayGroundData extends Component {
                 </Card>
                 :
                 <Container>
-                  <UncontrolledAlert color="blue" fade={false}>
+                  <Alert color="blue" fade={false}>
                     <span className="alert-inner--icon">
                       <i className="fa fa-code fa-lg" />
                     </span>
                     <span className="alert-inner--text ml-1 display-5">
                       {this.state.transaction}
                     </span>
-                  </UncontrolledAlert>
+                  </Alert>
                 </Container>
               :
               <></>
@@ -198,7 +203,7 @@ class PlayGroundData extends Component {
           </div>
         </section>
 
-        <section className="section section-lg pt-0 mt--200 text-white">
+        <section className="section section-lg pt-0 mt--250 text-white">
           {/* <BehindTheScenes /> */}
 
           <Container>
@@ -208,13 +213,13 @@ class PlayGroundData extends Component {
                   <Row className="align-items-center">
                     <Col>
                       <div className="display-3">
-                        Incubed Play Ground!
-                  </div>
+                        Try it yourself!
+                      </div>
                       <p className="lead text-white mt-3">
                         Bellow is inistially a real captured request and response between Incubed Client and Incubed Server.
                       </p>
                       <p className="lead text-white mt-3">
-                        Feel free to change (manipulate) the request and response to double check how Incubed Client does a validation on its side so no need to trust the Node (the Server).
+                        Feel free to change (manipulate) the request and response to double check how Incubed Client does a validation on its side such that no need to trust the Node (the Server).
                       </p>
                       <p>Note: Incubed Servers (Nodes) cannot provide fake signatures since there are always <strong>`watch-dogs`</strong> who will be pleased to get the node's deposits in such a case (anyone can act as a watchdog!).</p>
                     </Col>
@@ -235,7 +240,7 @@ class PlayGroundData extends Component {
                       />
                     </Col>
                   </Row>
-                  <Row>
+                  <Row className="pt-3">
                     <Col className="display-4"> Response
                     </Col>
                   </Row>
@@ -252,11 +257,10 @@ class PlayGroundData extends Component {
                     </Col>
                   </Row>
                   <Row>
-                    <Col className="display-4">
-
+                    <Col className="col-2 pt-4">
                       <Button
                         className="btn-icon mb-3 mb-sm-3"
-                        color="github"
+                        color="warning"
                         size="lg"
                         onClick={this.checkUserManipulation}
                       >
@@ -264,9 +268,44 @@ class PlayGroundData extends Component {
                           <i className="fa fa-flask" />
                         </span>
                         <span className="btn-inner--text">
-                          <span className="text-warning mr-1">Check!</span>
+                          <span className="mr-1">Check!</span>
                         </span>
                       </Button>
+                    </Col>
+                    <Col className="pt-3">
+                      {this.state.isUserInputVerified ?
+                        this.state.resultOfCheck ?
+                          <Alert color="success" fade={false}>
+                            <span className="alert-inner--icon">
+                              <i className="ni ni-like-2" />
+                            </span>
+                            <span className="alert-inner--text ml-1">
+                              <strong>Success!</strong> {this.state.resultOfCheck ?
+                                this.state.resultOfCheck
+                                : 'Change the texts above and press `CHECK!`'}
+                            </span>
+                          </Alert >
+                          :
+                          <Alert color="warning" fade={false}>
+                            <span className="alert-inner--icon">
+                              <i className="fa fa-exclamation" />
+                            </span>
+                            <span className="alert-inner--text ml-1">
+                              <strong>
+                                Change the texts above and press `CHECK!`
+                              </strong>
+                            </span>
+                          </Alert >
+                        :
+                        <Alert color="danger" fade={false}>
+                          <span className="alert-inner--icon">
+                            <i className="ni ni-support-16" />
+                          </span>
+                          <span className="alert-inner--text ml-1">
+                            <strong>Error!</strong> {this.state.resultOfCheck}
+                          </span>
+                        </Alert >
+                      }
                     </Col>
                   </Row>
                 </div>

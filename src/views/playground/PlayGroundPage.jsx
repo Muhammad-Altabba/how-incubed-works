@@ -45,18 +45,16 @@ class PlayGroundPage extends React.Component {
                   <Row>
                     <Col lg="6">
                       <h1 className="display-3 text-white">
-                      Transaction Proof example
+                        Incubed Play Ground!
                       </h1>
                       <div className="lead text-white">
                         <p className="lead text-white">
-                        TransactionProofs are used for the following transaction-methods:
+                          Incubed enable trustless comunication between Ethereum Clients and Nodes.
                         </p>
-                        <ul>
-                          <li>eth_getTransactionByHash</li>
-                          <li>eth_getTransactionByBlockHashAndIndex</li>
-                          <li>eth_getTransactionByBlockNumberAndIndex</li>
-                        </ul>
-                        <p className="display-4 text-white">In this sample, Incubed Client will ask for a `Transaction by Hash` from Incubed Servers.</p>
+                        <p>
+                          Bellow, Incubed Client will ask for a `Transaction by Hash` from Incubed Servers. Then it will catch the request and response from the first server. And enable you to change/manipulate the request and response and experiment how Incubed Client will react accordingly.
+                        </p>
+                        <p className="display-4 text-white">So feel free to manipulate the text-areas of the request/response and check with Incubed Client.</p>
                       </div>
                     </Col>
                   </Row>
