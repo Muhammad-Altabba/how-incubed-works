@@ -23,8 +23,8 @@ class JsonRpcOneFunctionShow extends React.Component {
                     <Container>
                         <Row className="align-items-center">
                             <Col className="text-white h5">
-                                <span class="align-middle">
-                                    <i class="fa fa-chevron-right"></i> {" "}
+                                <span className="align-middle">
+                                    <i className="fa fa-chevron-right"></i> {" "}
                                     {this.props.item.Url.slice(this.props.item.Url.indexOf('://') + 3)}
                                 </span>
                             </Col>

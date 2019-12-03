@@ -24,7 +24,7 @@ class JsonRpcMultiFunctionsShow extends React.Component {
                             ))}
                         </div>
                         :
-                        <Container className="pb-5 text-center">
+                        <Container className="pb-100 text-center">
                             <Row>
                                 <Col>
 
