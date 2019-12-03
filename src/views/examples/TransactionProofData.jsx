@@ -146,7 +146,7 @@ class TransactionProofData extends Component {
           </div>
         </section>
 
-        <section className="section section-lg pt-0 mt--200 text-white">
+        <section className="section section-lg pt-0 mt--250 text-white">
           <BehindTheScenes />
         </section>
       </>

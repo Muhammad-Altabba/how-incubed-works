@@ -22,8 +22,11 @@ class JsonRpcOneFunctionShow extends React.Component {
                 <Button color="primary" className="w-100" onClick={this.toggle} >
                     <Container>
                         <Row className="align-items-center">
-                            <Col className="display-4">
-                                {this.props.item.Url.slice(this.props.item.Url.indexOf('://') + 3)}
+                            <Col className="text-white h5">
+                                <span class="align-middle">
+                                    <i class="fa fa-chevron-right"></i> {" "}
+                                    {this.props.item.Url.slice(this.props.item.Url.indexOf('://') + 3)}
+                                </span>
                             </Col>
                             <Col className="col-4">
                                 <Button

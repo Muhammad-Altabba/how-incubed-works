@@ -99,6 +99,9 @@ class TopNavbar extends React.Component {
                       </DropdownItem>
                     </DropdownMenu> */}
                   </UncontrolledDropdown>
+                  <NavbarBrand to="/playground" tag={Link}>
+                    Play Ground
+                  </NavbarBrand>
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
@@ -220,6 +223,23 @@ class TopNavbar extends React.Component {
                             </p>
                           </Media>
                         </Media>
+                        <Media
+                          className="d-flex align-items-center"
+                          href="http://rpc.slock.it/"
+                          target="_blank"
+                        >
+                          <div className="icon icon-shape bg-gradient-info rounded-circle text-white">
+                            <i className="fa fa-signal" />
+                          </div>
+                          <Media body className="ml-3">
+                            <h6 className="heading text-info mb-md-1">
+                              Slock.it RPC Status
+                            </h6>
+                            <p className="description d-none d-md-inline-block mb-0">
+                              Checks the connection from your browser to rpc.slock.it
+                            </p>
+                          </Media>
+                        </Media>
                       </div>
                     </DropdownMenu>
                   </UncontrolledDropdown>
@@ -289,7 +309,24 @@ class TopNavbar extends React.Component {
                       Star us on Github
                     </UncontrolledTooltip>
                   </NavItem>
-                  <NavItem className="d-none d-lg-block ml-lg-4">
+                  
+                  <NavItem>
+                    <NavLink
+                      className="nav-link-icon"
+                      href="https://github.com/slockit/"
+                      id="tooltip112445449"
+                      target="_blank"
+                    >
+                      <i className="fa fa-book" />
+                      <span className="nav-link-inner--text d-lg-none ml-2">
+                        The Docs
+                      </span>
+                    </NavLink>
+                    <UncontrolledTooltip delay={0} target="tooltip112445449">
+                      Read the Docs
+                    </UncontrolledTooltip>
+                  </NavItem>
+                  {/* <NavItem className="d-none d-lg-block ml-lg-4">
                     <Button
                       className="btn-neutral btn-icon"
                       color="default"
@@ -300,10 +337,10 @@ class TopNavbar extends React.Component {
                         <i className="fa fa-book mr-2" />
                       </span>
                       <span className="nav-link-inner--text ml-1">
-                        Read the Docs
+                        The Docs
                       </span>
                     </Button>
-                  </NavItem>
+                  </NavItem> */}
                 </Nav>
               </UncontrolledCollapse>
             </Container>

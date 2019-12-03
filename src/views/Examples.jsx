@@ -93,7 +93,7 @@ class Examples extends React.Component {
                         </section>
                         {/* 1st Hero Variation */}
                     </div>
-                    <section className="section section pt-lg-0 mt--200">
+                    <section className="section section pt-lg-0 mt--250">
                         <Container>
                             <Row className="justify-content-center">
                                 <Col lg="12">
