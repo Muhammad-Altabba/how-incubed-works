@@ -1,7 +1,7 @@
 {
   "name": "how-incubed-works",
   "version": "1.0.0",
-  "description": "React version of Argon Design System by Creative Tim",
+  "description": "Your starting point to understand and experiment with, Incubed, the Blockchain-IoT enabler.",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -10,28 +10,21 @@
   },
   "keywords": [
     "blockchain",
+    "IoT",
     "dapp",
     "ethereum",
     "web3",
     "incubed",
+    "incubed-examples",
+    "incubed-play-ground",
     "in3",
     "trustless",
     "decentralized",
     "how-incubed-works",
     "react",
-    "reactjs",
-    "argon",
-    "argon-react",
-    "design",
-    "design-react",
-    "argon-design",
-    "argon-design-react",
-    "kit",
-    "react-kit",
-    "argon-design-system-react",
-    "design-system-react"
+    "kit"
   ],
-  "author": "Creative Tim",
+  "author": "Creative Tim (Desing) & Slock.it (Development)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/argon-design-system-react/issues"
