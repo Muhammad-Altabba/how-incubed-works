@@ -98,7 +98,7 @@ class LogProofData extends Component {
                             <span className="font-weight-bold">Topics:</span>                          
                             <ul>
                             {this.state.logs[index].topics.map((topic, topicsIndex) => (
-                              <li>
+                              <li key={topicsIndex}>
                                 <span className="font-weight-bold">Topic ({topicsIndex}): </span>{this.state.logs[index].topics[topicsIndex]}
                               </li>
                             ))}
