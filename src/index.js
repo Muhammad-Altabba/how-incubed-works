@@ -36,6 +36,7 @@ import CallProofPage from "views/examples/CallProofPage.jsx";
 import Login from "views/examples/Login.jsx";
 import Profile from "views/examples/Profile.jsx";
 import Register from "views/examples/Register.jsx";
+import PlayGroundPage from "views/playground/PlayGroundPage.jsx";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -50,6 +51,11 @@ ReactDOM.render(
         path="/examples"
         exact
         render={props => <Examples {...props} />}
+      />
+      <Route
+        path="/playground"
+        exact
+        render={props => <PlayGroundPage {...props} />}
       />
       <Route
         path="/examples/blockproof"
