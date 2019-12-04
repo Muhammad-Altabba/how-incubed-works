@@ -18,7 +18,6 @@ import {
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
 import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
-import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
 
 class PlayGroundData extends Component {
   state = {
@@ -50,7 +49,7 @@ class PlayGroundData extends Component {
 
   getWithIn3 = async () => {
     const web3 = this.state.web3;
-    
+
     this.setState({ transaction: 'Calling `web3.eth.getTransaction(\'' + this.state.transactionHash + '\');` and waiting for the response.' });
 
     window.JsonRpcLogs[this.functionName] = [];
@@ -249,7 +248,7 @@ class PlayGroundData extends Component {
                     </Col>
                   </Row>
                   <Row>
-                    <Col className="col-2 pt-4">
+                    <Col className="col-auto pt-4">
                       <Button
                         className="btn-icon mb-3 mb-sm-3"
                         color="warning"
