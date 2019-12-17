@@ -11,7 +11,9 @@ build:
   script:
   - sh /prepare.sh
   - npm install
+  - CI=false 
   - npm run build
+  - CI=true 
   artifacts:
     name: build-ui
     paths:
