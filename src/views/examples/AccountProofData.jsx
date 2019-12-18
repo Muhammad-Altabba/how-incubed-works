@@ -50,9 +50,6 @@ class AccountProofData extends Component {
           console.log('Account Balance:');
           console.log(accountBalance);
           this.setState({ accountBalance: this.state.web3.utils.fromWei(accountBalance) });
-          console.log(typeof this.state.accountBalance);
-          console.log(typeof accountBalance);
-          console.log(this.state.web3.utils.fromWei);
         }, (error) => {
           console.log('Error happen when getting the Account Balance!');
           console.log(error);
