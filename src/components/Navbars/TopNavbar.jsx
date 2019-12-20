@@ -17,7 +17,8 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip
+  UncontrolledTooltip,
+  DropdownItem
 } from "reactstrap";
 
 class TopNavbar extends React.Component {
@@ -69,13 +70,9 @@ class TopNavbar extends React.Component {
                     How it Works!
                   </NavbarBrand>
                   <UncontrolledDropdown nav >
-                    <DropdownToggle nav onClick={() => { window.location.href = '/examples' }}>
-                      <span >Examples</span>
-                    </DropdownToggle>
-                    {/* 
-                    Note: For some reason if those links are used, Web3 instantiation has some issues. To check after uncomment, try visit multible pages after each others.
-                    For now this sub-menu is not preset.
-
+                    <NavLink to= '/examples' tag={Link}>
+                      Examples
+                    </NavLink>
                     <DropdownMenu>
                       <DropdownItem to="/examples/blockproof/" tag={Link}>
                         Block Proof
@@ -95,7 +92,7 @@ class TopNavbar extends React.Component {
                       <DropdownItem to="/examples/callproof/" tag={Link}>
                         Call Proof
                       </DropdownItem>
-                    </DropdownMenu> */}
+                    </DropdownMenu>
                   </UncontrolledDropdown>
                   <NavbarBrand to="/playground" tag={Link}>
                     Play Ground
@@ -307,7 +304,7 @@ class TopNavbar extends React.Component {
                       Star us on Github
                     </UncontrolledTooltip>
                   </NavItem>
-                  
+
                   <NavItem>
                     <NavLink
                       className="nav-link-icon"

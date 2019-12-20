@@ -26,8 +26,11 @@ import {
     Container,
     Row,
     Col,
-    UncontrolledAlert
+    UncontrolledAlert,
+    NavLink
 } from "reactstrap";
+
+import { Link } from "react-router-dom";
 
 // core components
 import TopNavbar from "components/Navbars/TopNavbar.jsx";
@@ -115,10 +118,12 @@ class Examples extends React.Component {
                                                             Block Proof
                                                         </Badge>
                                                     </div>
+
                                                     <Button
                                                         className="mt-4"
                                                         color="warning"
-                                                        href="/examples/blockproof/"
+                                                        tag={Link}
+                                                        to="/examples/blockproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -145,7 +150,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="success"
-                                                        href="/examples/transactionproof/"
+                                                        tag={Link}
+                                                        to="/examples/transactionproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -172,7 +178,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="gray-700"
-                                                        href="/examples/receiptproof/"
+                                                        tag={Link}
+                                                        to="/examples/receiptproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -201,7 +208,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="primary"
-                                                        href="/examples/logproof/"
+                                                        tag={Link}
+                                                        to="/examples/logproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -228,7 +236,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="indigo"
-                                                        href="/examples/accountproof/"
+                                                        tag={Link}
+                                                        to="/examples/accountproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -255,7 +264,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="goldenrod"
-                                                        href="/examples/callproof/"
+                                                        tag={Link}
+                                                        to="/examples/callproof/"
                                                     >
                                                         Try it!
                                                     </Button>
