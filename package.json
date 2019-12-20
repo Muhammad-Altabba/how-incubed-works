@@ -1,7 +1,7 @@
 {
   "name": "how-incubed-works",
   "version": "1.0.0",
-  "description": "Your starting point to understand and experiment with, Incubed, the Blockchain-IoT enabler.",
+  "description": "Your starting point to understand and experiment with Incubed, the Blockchain-IoT enabler and your trusted Blockchain Minimal Verification Client.",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
@@ -24,7 +24,7 @@
     "react",
     "kit"
   ],
-  "author": "Creative Tim (Desing) & Slock.it (Development)",
+  "author": "Creative Tim (Desing 2019) & Slock.it (Development 2020)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/argon-design-system-react/issues"
@@ -59,11 +59,7 @@
   ],
   "dependencies": {
     "classnames": "2.2.6",
-    "ethereumjs-block": "^2.2.1",
     "headroom.js": "0.9.4",
-    "in3": "^2.0.10-RC3",
-    "keccak": "^2.0.0",
-    "merkle-patricia-tree": "^3.0.0",
     "moment": "2.24.0",
     "node-sass": "4.12.0",
     "nouislider": "13.1.5",
@@ -75,7 +71,8 @@
     "react-router-dom": "5.0.0",
     "react-scripts": "3.0.0",
     "reactstrap": "8.0.0",
-    "web3": "^1.2.0"
+    "web3": "^1.2.0",
+    "in3": "^2.0.10-RC3"
   },
   "devDependencies": {
     "@types/googlemaps": "3.30.19",
