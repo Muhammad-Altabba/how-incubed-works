@@ -12,7 +12,6 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
 
@@ -22,8 +21,6 @@ class AccountProofData extends Component {
   loadingMessage = 'Calling `web3.eth.getBalance(\'' + this.state.account + '\');` and waiting for the response.';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -43,7 +40,7 @@ class AccountProofData extends Component {
   getWithIn3 = async () => {
     const web3 = this.state.web3;
 
-    window.JsonRpcLogs[this.functionName] = [];
+    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
     try {
       web3.eth.getBalance(this.state.account).then(
         (accountBalance) => {

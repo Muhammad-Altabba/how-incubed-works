@@ -16,7 +16,6 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 
 class PlayGroundData extends Component {
@@ -29,8 +28,6 @@ class PlayGroundData extends Component {
   functionName = 'eth_getTransactionByHash';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -52,7 +49,7 @@ class PlayGroundData extends Component {
 
     this.setState({ transaction: 'Calling `web3.eth.getTransaction(\'' + this.state.transactionHash + '\');` and waiting for the response.' });
 
-    window.JsonRpcLogs[this.functionName] = [];
+    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
     try {
       //getting Transaction
       web3.eth.getTransaction(this.state.transactionHash).then(
@@ -61,14 +58,16 @@ class PlayGroundData extends Component {
           console.log(transaction);
           this.setState({ transaction: transaction });
 
-          const request = JSON.stringify(window.JsonRpcLogs[this.functionName][0].Request, null, 4);
-          const response = JSON.stringify(window.JsonRpcLogs[this.functionName][0].Response, null, 4);
+          if (window.JsonRpcLogs) {
+            const request = JSON.stringify(window.JsonRpcLogs[this.functionName][0].Request, null, 4);
+            const response = JSON.stringify(window.JsonRpcLogs[this.functionName][0].Response, null, 4);
 
-          this.setState({
-            transaction: transaction,
-            sampleRequest: request, sampleResponse: response,
-            userRequest: request, userResponse: response
-          });
+            this.setState({
+              transaction: transaction,
+              sampleRequest: request, sampleResponse: response,
+              userRequest: request, userResponse: response
+            });
+          }
 
         }, (error) => {
           console.log('Error happen when getting the transaction ' + this.state.transactionHash + '!');

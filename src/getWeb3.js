@@ -1,26 +1,43 @@
 import Web3 from "web3";
-import In3Client from 'in3';
+import IN3Client from 'in3';
+import WasmIN3Client from 'in3-wasm';
+
+import InterceptAndLog from "./InterceptAndLog.js";
+
+const useWasm = true;
 
 const getWeb3 = (withVerification) =>
-
   new Promise((resolve, reject) => {
-
     // If withVerification In3 client will be used as a provider for Web3.
     if (withVerification) {
+      const in3Config = {
+        proof: 'standard',  //‘none’ for no verification, ‘standard’ for verifying all important fields, ‘full’ veryfying all fields even if this means a high payloaad 
+        signatureCount: 2,
+        requestCount: 3,
+        chainId: 'mainnet',
+        timeout: 30000,
+        replaceLatestBlock: 6
+      };
+
       try {
-        // use the In3Client as Http-Provider
-        const web3 = new Web3(new In3Client({
-          proof: 'standard',  //‘none’ for no verification, ‘standard’ for verifying all important fields, ‘full’ veryfying all fields even if this means a high payloaad 
-          signatureCount: 2,
-          requestCount: 3,
-          chainId: 'mainnet',
-          timeout: 30000,
-          replaceLatestBlock: 6
-        }).createWeb3Provider());
+        let client;
+        if (!window.web3WithIn3) {
+          if (useWasm) {
+            WasmIN3Client.setTransport(new InterceptAndLog().in3WasmTransportFunction)
+
+            client = new WasmIN3Client(in3Config)
+          }
+          else {
+            client = new IN3Client(in3Config);
+          }
+
+          // use the IN3Client as Http-Provider
+          const web3 = new Web3(client);
+          window.web3WithIn3 = web3;
+        }
 
         console.log("Web3 with In3 (Incubed will be used as a provider for Web3)");
-        console.log()
-        resolve(web3);
+        resolve(window.web3WithIn3);
       } catch (error) {
         reject(error);
       }

@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
 
@@ -20,8 +19,6 @@ class ReceiptProofData extends Component {
   functionName = 'eth_getTransactionReceipt';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -43,7 +40,7 @@ class ReceiptProofData extends Component {
 
     this.setState({ transactionReceipt: 'Calling `web3.eth.getTransactionReceipt(\'' + this.state.transactionHash + '\');` ...' });
 
-    window.JsonRpcLogs[this.functionName] = [];
+    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
     try {
       //getting Transaction
       web3.eth.getTransactionReceipt(this.state.transactionHash).then(

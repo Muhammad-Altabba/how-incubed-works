@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
 
@@ -20,8 +19,6 @@ class BlockProofData extends Component {
   functionName = 'eth_getBlockByNumber';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -53,7 +50,7 @@ class BlockProofData extends Component {
 
     this.setState({ latestBlock: 'Calling `web3.eth.getBlock(\'latest\');` and waiting for the response.' });
 
-    window.JsonRpcLogs[this.functionName] = [];
+    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
     try {
       web3.eth.getBlock('latest').then(
         (latestBlock) => {
