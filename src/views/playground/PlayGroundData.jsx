@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import In3Client from 'in3'
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 // reactstrap components
 import {
@@ -48,8 +49,9 @@ class PlayGroundData extends Component {
     const web3 = this.state.web3;
 
     this.setState({ transaction: 'Calling `web3.eth.getTransaction(\'' + this.state.transactionHash + '\');` and waiting for the response.' });
+     
+    new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
 
-    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
     try {
       //getting Transaction
       web3.eth.getTransaction(this.state.transactionHash).then(

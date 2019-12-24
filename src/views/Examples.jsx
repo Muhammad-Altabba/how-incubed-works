@@ -26,8 +26,7 @@ import {
     Container,
     Row,
     Col,
-    UncontrolledAlert,
-    NavLink
+    UncontrolledAlert
 } from "reactstrap";
 
 import { Link } from "react-router-dom";

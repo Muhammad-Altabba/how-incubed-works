@@ -1,3 +1,4 @@
+import {useWasm} from "./getWeb3";
 
 const truncationNote = '"***RESPONSE HAS BEEN TRANCATED BECAUSE IT IS VERY LARGE (Just to ease showing it on the page!)***"';
 
@@ -7,6 +8,15 @@ class InterceptAndLog {
             window.JsonRpcLogs = {};
     }
 
+    incerceptJsonRpcCalls = (functionName) => {
+
+        window.JsonRpcLogs[functionName] = [];
+
+        if(useWasm)
+            return;
+
+        this.interceptingAllHttpCalls();
+    }
     // Note: This was used with Incubed TypesScript client. The newer wasm client is now used.
     //  So it is not used now. But kept for later experiments...
     //  To use:
@@ -14,6 +24,7 @@ class InterceptAndLog {
     //      2) Before any web3 call, clear by caling `window.JsonRpcLogs[this.functionName] = [];`
     //      3) Use `<JsonRpcMultiFunctionsShow functionName={this.functionName} />`
     interceptingAllHttpCalls = () => {
+
         XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
         XMLHttpRequest.prototype.send = function (request) {
             this.addEventListener("load", function () { // Note: this.addEventListener("progress",... is the same but "progress" willl have a truncated response, if it is large!

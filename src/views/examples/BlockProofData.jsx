@@ -13,6 +13,7 @@ import {
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class BlockProofData extends Component {
   state = { web3: null, latestBlock: null };
@@ -50,7 +51,8 @@ class BlockProofData extends Component {
 
     this.setState({ latestBlock: 'Calling `web3.eth.getBlock(\'latest\');` and waiting for the response.' });
 
-    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
+    new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
+
     try {
       web3.eth.getBlock('latest').then(
         (latestBlock) => {

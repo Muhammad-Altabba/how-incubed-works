@@ -13,6 +13,7 @@ import {
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class LogProofData extends Component {
   state = { web3: null, logs: null };
@@ -40,7 +41,8 @@ class LogProofData extends Component {
 
     this.setState({ logs: 'Calling `web3.eth.getPastLogs(options);` and waiting for the response.' });
 
-    if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
+    new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
+
     try {
       const options = {
         fromBlock: 9013558,

@@ -13,6 +13,7 @@ import {
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class CallProofData extends Component {
   state = { web3: null, account: '0x2819c144d5946404c0516b6f817a960db37d4929', callResult: null };
@@ -45,7 +46,7 @@ class CallProofData extends Component {
         }
       );
       
-      if (window.JsonRpcLogs) window.JsonRpcLogs[this.functionName] = [];
+      new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
 
       var erc20Bal = await contract.methods.balanceOf(this.state.account).call(
         {
