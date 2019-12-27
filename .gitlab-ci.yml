@@ -24,8 +24,6 @@ docker-package:
   tags:
   - short-jobs
   image: docker
-  only:
-  - tags
   services:
   - docker:dind
   script:
