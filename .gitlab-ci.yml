@@ -15,7 +15,6 @@ build:
   - npm run build
   - CI=true 
   artifacts:
-    name: build-ui
     paths:
     - build/
 
