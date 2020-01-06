@@ -1,0 +1,8 @@
+version: '2'
+services:
+  nd-1:
+    image: docker.slock.it/in3/how-incubed-works:${CI_COMMIT_REF_NAME}
+    stdin_open: true
+    tty: true
+    ports:
+      - "8001:80"
