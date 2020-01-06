@@ -49,7 +49,7 @@ docker-package:
     - docker:dind
   script:
     - cd deployment
-    - rancher -w up -f docker-compose.yml -d --prune -p -s in3-react-truffle-box -c --force-upgrade
+    - rancher -w up -f docker-compose.yml -d --prune -p -s how-in3-works -c --force-upgrade
 
 # Production deployments
 deploy-to-rancher:
