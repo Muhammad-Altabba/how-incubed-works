@@ -66,12 +66,12 @@ class Examples extends React.Component {
                                     <Row>
                                         <Col lg="6">
                                             <h1 className="display-3 text-white">
-                                                Examples of using Web3 that uses In3 as a provider
+                                                Examples of using Web3 that uses IN3 (Incubed Client) as a provider
                                             </h1>
                                             <p className="lead text-white">
                                                 In all the examples, the Web3 object will not use any injected Web3 provider (MetaMask) nor any tursted node as a provider.
-                                                It will use In3 Client that connects to an In3 trustless Server. And it will get and validate proofs for any validatable remote call.
-                                        </p>
+                                                It uses Incubed Client (IN3) that connects to <i><b>trustless</b></i> Incubed Server(s). And it gets and validates proofs for any validatable remote call.
+                                            </p>
                                         </Col>
                                     </Row>
                                 </div>

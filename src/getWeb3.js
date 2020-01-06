@@ -9,10 +9,10 @@ export const useWasm = true;
 
 const getWeb3 = (withVerification) =>
   new Promise((resolve, reject) => {
-    // If withVerification In3 client will be used as a provider for Web3.
+    // If withVerification, Incubed Client (IN3) will be used as a provider for Web3.
     if (withVerification) {
       const in3Config = {
-        proof: 'standard',  //‘none’ for no verification, ‘standard’ for verifying all important fields, ‘full’ veryfying all fields even if this means a high payloaad 
+        proof: 'standard',  //‘none’ for no verification, ‘standard’ for verifying all important fields, ‘full’ veryfying all fields even if this means a high payload 
         signatureCount: 2,
         requestCount: 3,
         chainId: 'mainnet',
@@ -37,14 +37,14 @@ const getWeb3 = (withVerification) =>
           window.web3WithIn3 = web3;
         }
 
-        console.log("Web3 with In3 (Incubed will be used as a provider for Web3)");
+        console.log("Using Web3 with IN3 (Incubed Client will be used as a provider for Web3)");
         resolve(window.web3WithIn3);
       } catch (error) {
         reject(error);
       }
     }
     else {
-      console.log("Web3 without In3 client will be used. There is no way to verify the respose of the remote node (ethereum client).");
+      console.log("Web3 without Incubed Client (IN3) will be used. There will be no way to verify the respose of the remote Node (Ethereum Client). Be sure to connect to a truested Node");
       // Wait for loading completion to avoid race conditions with web3 injection timing.
       window.addEventListener("load", async () => {
         // Modern dapp browsers...
