@@ -65,15 +65,12 @@ class Top extends React.Component {
                   <Col className="text-center" lg="9">
                     <div className="lead text-white">
                       <p>
-                        Good to Go with BlockChain and IoT!
+                        Good to Go with Blockchain and IoT!
                     </p>
                       <p>
                         Connect IoT devices to the blockchain with secure interoperability.
                     </p>
                     </div>
-                    {/* <p className="lead text-white">
-                      Examples of using Web3 that uses In3 as a provider
-                    </p> */}
                     <div className="btn-wrapper mt-5">
                       <Button
                         className="btn-white btn-icon mb-3 mb-sm-3"
@@ -116,7 +113,8 @@ class Top extends React.Component {
                           />
                         </span>
                         <span className="btn-inner--text">
-                          <span className="mr-1">Develop with In3</span>
+                        {/* Update the link once Incubed Truffle Box is ready */}
+                          <span className="mr-1">Truffle with IN3</span>
                         </span>
                       </Button>{" "}
                       <Button
@@ -148,17 +146,6 @@ class Top extends React.Component {
                         </span>
                       </Button>
                     </div>
-                    {/* <div className="mt-5">
-                      <small className="text-white font-weight-bold mb-0 mr-2">
-                        *proudly coded by
-                      </small>
-                      <img
-                        alt="..."
-                        className="ml-1"
-                        style={{ height: "28px" }}
-                        src={require("assets/img/brand/creativetim-white-slim.png")}
-                      />
-                    </div> */}
                   </Col>
                 </Row>
               </div>

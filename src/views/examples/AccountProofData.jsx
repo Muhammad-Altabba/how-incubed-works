@@ -12,9 +12,9 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class AccountProofData extends Component {
   state = { web3: null, account: '0x00DaA9a2D88BEd5a29A6ca93e0B7d860cd1d403F', accountBalance: null };
@@ -22,8 +22,6 @@ class AccountProofData extends Component {
   loadingMessage = 'Calling `web3.eth.getBalance(\'' + this.state.account + '\');` and waiting for the response.';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -43,16 +41,14 @@ class AccountProofData extends Component {
   getWithIn3 = async () => {
     const web3 = this.state.web3;
 
-    window.JsonRpcLogs[this.functionName] = [];
+    new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
+
     try {
       web3.eth.getBalance(this.state.account).then(
         (accountBalance) => {
           console.log('Account Balance:');
           console.log(accountBalance);
           this.setState({ accountBalance: this.state.web3.utils.fromWei(accountBalance) });
-          console.log(typeof this.state.accountBalance);
-          console.log(typeof accountBalance);
-          console.log(this.state.web3.utils.fromWei);
         }, (error) => {
           console.log('Error happen when getting the Account Balance!');
           console.log(error);

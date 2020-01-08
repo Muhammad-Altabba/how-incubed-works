@@ -11,9 +11,9 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class CallProofData extends Component {
   state = { web3: null, account: '0x2819c144d5946404c0516b6f817a960db37d4929', callResult: null };
@@ -21,8 +21,6 @@ class CallProofData extends Component {
   functionName = 'eth_call';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -38,6 +36,8 @@ class CallProofData extends Component {
       var contractAddr = "0xdac17f958d2ee523a2206206994597c13d831ec7"
       var contract = new web3.eth.Contract(abi, contractAddr);
 
+      // Getting the 'decimals' of the smart contract will make a call to 'eth_call'.
+      //  But for simplicity and easiness, we will not show those calls in the UI. To not be confused with the 'balanceOf'.
       var decimals = await contract.methods.decimals().call(
         {
           gas: 47000,
@@ -45,9 +45,8 @@ class CallProofData extends Component {
           from: '0x71c24b85086928930f5dC2a6690574E7016C1A7F'
         }
       );
-      // Getting the 'decimals' of the smart contract will make a call to 'eth_call'.
-      //  But for simplicity and easiness, we will not show those calls in the UI. To not be confused with the 'balanceOf'.
-      window.JsonRpcLogs[this.functionName] = [];
+      
+      new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
 
       var erc20Bal = await contract.methods.balanceOf(this.state.account).call(
         {
