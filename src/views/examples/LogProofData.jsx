@@ -11,17 +11,15 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class LogProofData extends Component {
   state = { web3: null, logs: null };
   functionName = 'eth_getLogs';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -43,7 +41,8 @@ class LogProofData extends Component {
 
     this.setState({ logs: 'Calling `web3.eth.getPastLogs(options);` and waiting for the response.' });
 
-    window.JsonRpcLogs[this.functionName] = [];
+    new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
+
     try {
       const options = {
         fromBlock: 9013558,
@@ -98,7 +97,7 @@ class LogProofData extends Component {
                             <span className="font-weight-bold">Topics:</span>                          
                             <ul>
                             {this.state.logs[index].topics.map((topic, topicsIndex) => (
-                              <li>
+                              <li key={topicsIndex}>
                                 <span className="font-weight-bold">Topic ({topicsIndex}): </span>{this.state.logs[index].topics[topicsIndex]}
                               </li>
                             ))}

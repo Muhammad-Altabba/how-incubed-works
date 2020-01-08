@@ -11,17 +11,15 @@ import {
 } from "reactstrap";
 
 import JsonRpcMultiFunctionsShow from "../../components/incubed/JsonRpcMultiFunctionsShow.jsx";
-import InterceptAndLog from "../../InterceptAndLog.js";
 import getWeb3 from "../../getWeb3";
 import BehindTheScenes from "components/incubed/BehindTheScenes.jsx";
+import InterceptAndLog from "../../InterceptAndLog.js";
 
 class TransactionProofData extends Component {
   state = { web3: null, transaction: null, transactionHash: '0xfc2786e12ba6f9f25587e618a0fbc407bf34afce137a1f695fcda3a1dacbe3eb' };
   functionName = 'eth_getTransactionByHash';
 
   componentDidMount = async () => {
-
-    new InterceptAndLog().interceptingAllHttpCalls();
 
     try {
       // Get network provider and web3 instance.
@@ -43,7 +41,8 @@ class TransactionProofData extends Component {
 
     this.setState({ transaction: 'Calling `web3.eth.getTransaction(\''+this.state.transactionHash+'\');` and waiting for the response.' });
 
-    window.JsonRpcLogs[this.functionName] = [];
+    new InterceptAndLog().incerceptJsonRpcCalls(this.functionName);
+
     try {
       //getting Transaction
       web3.eth.getTransaction(this.state.transactionHash).then(

@@ -1,3 +1,4 @@
+import {useWasm} from "./getWeb3";
 
 const truncationNote = '"***RESPONSE HAS BEEN TRANCATED BECAUSE IT IS VERY LARGE (Just to ease showing it on the page!)***"';
 
@@ -7,8 +8,24 @@ class InterceptAndLog {
             window.JsonRpcLogs = {};
     }
 
+    incerceptJsonRpcCalls = (functionName) => {
+
+        window.JsonRpcLogs[functionName] = [];
+
+        if(useWasm)
+            return;
+
+        this.interceptingAllHttpCalls();
+    }
+    // Note: This was used with Incubed TypesScript client. The newer wasm client is now used.
+    //  So it is not used now. But kept for later experiments...
+    //  To use:
+    //      1) Call at `componentDidMount`: `new InterceptAndLog().interceptingAllHttpCalls();`
+    //      2) Before any web3 call, clear by caling `window.JsonRpcLogs[this.functionName] = [];`
+    //      3) Use `<JsonRpcMultiFunctionsShow functionName={this.functionName} />`
     interceptingAllHttpCalls = () => {
-        XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.send;
+
+        XMLHttpRequest.prototype.realSend = XMLHttpRequest.prototype.realSend || XMLHttpRequest.prototype.send;
         XMLHttpRequest.prototype.send = function (request) {
             this.addEventListener("load", function () { // Note: this.addEventListener("progress",... is the same but "progress" willl have a truncated response, if it is large!
                 if (!request)
@@ -20,25 +37,57 @@ class InterceptAndLog {
                     else
                         return;
                 if (requestObject.jsonrpc !== undefined && requestObject.in3 === undefined) {
-                    console.log('In3 is not used as a provider for Web3. The method "' + requestObject.method + '" will be called without verification!');
+                    console.log('IN3 is not used as a provider for Web3. The method "' + requestObject.method + '" will be called without verification!');
                     return;
                 }
 
-                // If In3 is used, the object `requestObject` has a value similar to the following (note the "in3"):
+                // If Inclubed Client is used, the object `requestObject` has a value similar to the following (note the "in3" property):
                 // [{"jsonrpc":"2.0","id":3,"method":"eth_getBlockByNumber","params":["latest",false],"in3":{"latestBlock":6,"verification":"proofWithSignature","signatures":["0x945F75c0408C0026a3CD204d36f5e47745182fd4","0x1Fe2E9bf29aa1938859Af64C413361227d04059a"],"version":"2.0.0"}}]
 
-                // The `truncateAndFixLargJson` is used because this.response could be very large. This is because in3 section could be more than 100KB.
-                let { response, responseObject } = InterceptAndLog.truncateAndFixLargJson(this.response, 1000000);
-
+                // The `truncateAndFixLargJson` is used because this.response could be very large. This is because in3 property could be more than 100KB.
+                let { responseTextItem, responseObjectItem } = InterceptAndLog.truncateAndFixLargJson(this.response, 1000000);
 
                 if (window.JsonRpcLogs[requestObject.method] === undefined)
                     window.JsonRpcLogs[requestObject.method] = [];
                 console.log('Calling ' + requestObject.method + ' for the ' + (window.JsonRpcLogs[requestObject.method].length + 1) + '-th time(s).')
-                window.JsonRpcLogs[requestObject.method].push({ Url: this.responseURL, Request: requestObject, Response: responseObject ? responseObject : response, OriginalResponse: this.response });
+                window.JsonRpcLogs[requestObject.method].push({ Url: this.responseURL, Request: requestObject, Response: responseObjectItem ? responseObjectItem : responseTextItem, OriginalResponse: this.response });
             }, false);
 
             this.realSend(request);
         };
+    }
+
+    in3WasmTransportFunction = (url, request) => {
+
+        const Http = new XMLHttpRequest();
+        Http.open("POST", url, false);
+        Http.setRequestHeader("Content-Type", "application/json")
+        Http.send(request);
+
+        if (Http.status === 200) {
+
+            // If IN3 is used, the object `requestObject` has a value similar to the following (note the "in3"):
+            // [{"jsonrpc":"2.0","id":3,"method":"eth_getBlockByNumber","params":["latest",false],"in3":{"latestBlock":6,"verification":"proofWithSignature","signatures":["0x945F75c0408C0026a3CD204d36f5e47745182fd4","0x1Fe2E9bf29aa1938859Af64C413361227d04059a"],"version":"2.0.0"}}]
+
+
+            const requestObject = JSON.parse(request);
+            const responseObject = JSON.parse(Http.responseText);
+
+            for (let i = 0; i < requestObject.length; i++) {
+                const method = requestObject[i].method;
+                const originalResponseTextItem = JSON.stringify(responseObject[i]);
+                let { responseTextItem, responseObjectItem } = InterceptAndLog.truncateAndFixLargJson(originalResponseTextItem, 1000000);
+
+                if (window.JsonRpcLogs[method] === undefined)
+                    window.JsonRpcLogs[method] = [];
+                console.log('Calling ' + method + ' for the ' + (window.JsonRpcLogs[method].length + 1) + '-th time(s).')
+                window.JsonRpcLogs[method].push({ Url: url, Request: requestObject[i], Response: responseObjectItem ? responseObjectItem : responseTextItem, OriginalResponse: Http.responseText });
+            }
+
+            return Promise.resolve(Http.responseText);
+        }
+
+        return Promise.resolve(Http.responseText);
     }
 
     static truncateAndFixLargJson(originalResponse, maxLength) {
@@ -120,8 +169,9 @@ class InterceptAndLog {
             debugger;
         }
 
-        return { response, responseObject };
+        return { responseTextItem: response, responseObjectItem: responseObject };
     }
+
 }
 
 export default InterceptAndLog;

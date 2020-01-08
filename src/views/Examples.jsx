@@ -29,6 +29,8 @@ import {
     UncontrolledAlert
 } from "reactstrap";
 
+import { Link } from "react-router-dom";
+
 // core components
 import TopNavbar from "components/Navbars/TopNavbar.jsx";
 import SimpleFooter from "components/Footers/SimpleFooter.jsx";
@@ -64,12 +66,12 @@ class Examples extends React.Component {
                                     <Row>
                                         <Col lg="6">
                                             <h1 className="display-3 text-white">
-                                                Examples of using Web3 that uses In3 as a provider
+                                                Examples of using Web3 that uses IN3 (Incubed Client) as a provider
                                             </h1>
                                             <p className="lead text-white">
                                                 In all the examples, the Web3 object will not use any injected Web3 provider (MetaMask) nor any tursted node as a provider.
-                                                It will use In3 Client that connects to an In3 trustless Server. And it will get and validate proofs for any validatable remote call.
-                                        </p>
+                                                It uses Incubed Client (IN3) that connects to <i><b>trustless</b></i> Incubed Server(s). And it gets and validates proofs for any validatable remote call.
+                                            </p>
                                         </Col>
                                     </Row>
                                 </div>
@@ -115,10 +117,12 @@ class Examples extends React.Component {
                                                             Block Proof
                                                         </Badge>
                                                     </div>
+
                                                     <Button
                                                         className="mt-4"
                                                         color="warning"
-                                                        href="/examples/blockproof/"
+                                                        tag={Link}
+                                                        to="/examples/blockproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -145,7 +149,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="success"
-                                                        href="/examples/transactionproof/"
+                                                        tag={Link}
+                                                        to="/examples/transactionproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -172,7 +177,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="gray-700"
-                                                        href="/examples/receiptproof/"
+                                                        tag={Link}
+                                                        to="/examples/receiptproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -201,7 +207,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="primary"
-                                                        href="/examples/logproof/"
+                                                        tag={Link}
+                                                        to="/examples/logproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -228,7 +235,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="indigo"
-                                                        href="/examples/accountproof/"
+                                                        tag={Link}
+                                                        to="/examples/accountproof/"
                                                     >
                                                         Try it!
                                                     </Button>
@@ -255,7 +263,8 @@ class Examples extends React.Component {
                                                     <Button
                                                         className="mt-4"
                                                         color="goldenrod"
-                                                        href="/examples/callproof/"
+                                                        tag={Link}
+                                                        to="/examples/callproof/"
                                                     >
                                                         Try it!
                                                     </Button>
