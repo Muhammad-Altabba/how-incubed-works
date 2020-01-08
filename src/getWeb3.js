@@ -4,7 +4,7 @@ import WasmIN3Client from 'in3-wasm';
 
 import InterceptAndLog from "./InterceptAndLog.js";
 
-export const useWasm = true;
+export const useWasm = false;
 
 
 const getWeb3 = (withVerification) =>
