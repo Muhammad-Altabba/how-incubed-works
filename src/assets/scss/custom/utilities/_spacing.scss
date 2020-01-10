@@ -109,3 +109,88 @@
         padding-bottom: 300px!important;
     }
 }
+
+
+@include media-breakpoint-down(md) {
+    [class*="mt--"],
+    [class*="mr--"],
+    [class*="mb--"],
+    [class*="ml--"] {
+        position: relative;
+        z-index: 5;
+    }
+
+
+    // Large negative margins in pixels
+
+    .mt--100 {
+        margin-top: -20px !important;
+    }
+    .mr--100 {
+        margin-right: -20px !important;
+    }
+    .mb--100 {
+        margin-bottom: -20px !important;
+    }
+    .ml--100 {
+        margin-left: -20px !important;
+    }
+    .mt--150 {
+        margin-top: -30px !important;
+    }
+    .mb--150 {
+        margin-bottom: -30px !important;
+    }
+    .mt--200 {
+        margin-top: -40px !important;
+    }
+    .mb--200 {
+        margin-bottom: -40px !important;
+    }
+    .mt--250 {
+        margin-top: -50px !important;
+    }
+    .mb--250 {
+        margin-bottom: -50px !important;
+    }
+    .mt--300 {
+        margin-top: -60px !important;
+    }
+    .mb--300 {
+        margin-bottom: -60px !important;
+    }
+
+
+    // Large margins in pixels
+
+    .pt-100 {
+        padding-top: 20px !important;
+    }
+    .pb-100 {
+        padding-bottom: 20px !important;
+    }
+    .pt-150 {
+        padding-top: 30px !important;
+    }
+    .pb-150 {
+        padding-bottom: 30px !important;
+    }
+    .pt-200 {
+        padding-top: 40px !important;
+    }
+    .pb-200 {
+        padding-bottom: 40px !important;
+    }
+    .pt-250 {
+        padding-top: 50px !important;
+    }
+    .pb-250 {
+        padding-bottom: 50px !important;
+    }
+    .pt-300 {
+        padding-top: 60px!important;
+    }
+    .pb-300 {
+        padding-bottom: 60px!important;
+    }
+}

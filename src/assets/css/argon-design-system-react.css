@@ -9624,7 +9624,7 @@ textarea[resize="horizontal"] {
   display: none; }
 
 @media (max-width: 991.98px) {
-  .navbar-nav .nav-link {
+  .navbar-nav .nav-link, .navbar-brand {
     padding: .625rem 0;
     color: #172b4d !important; }
   .navbar-nav .dropdown-menu {

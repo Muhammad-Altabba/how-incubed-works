@@ -20,6 +20,8 @@ import React from "react";
 // reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
 
+import { Link } from "react-router-dom";
+
 class Top extends React.Component {
   render() {
     return (
@@ -73,33 +75,36 @@ class Top extends React.Component {
                     </div>
                     <div className="btn-wrapper mt-5">
                       <Button
-                        className="btn-white btn-icon mb-3 mb-sm-3"
-                        color="default"
-                        target="_blank"
-                        href="https://in3.readthedocs.io/en/latest/"
-                        size="lg"
-                      >
-                        <span className="btn-inner--icon mr-1">
-                          <i className="fa fa-book" />
-                        </span>
-                        <span className="btn-inner--text">Read the Docs</span>
-                      </Button>{" "}
-                      <Button
                         className="btn-icon mb-3 mb-sm-3"
                         color="github"
-                        href="/examples"
+                        tag={Link}
+                        to="/playground"
                         size="lg"
                       >
                         <span className="btn-inner--icon mr-1">
                           <i className="fa fa-flask" />
                         </span>
                         <span className="btn-inner--text">
-                          <span className="text-warning mr-1">Check examples</span>
+                          <span className="text-warning mr-1">Incubed Playground</span>
                         </span>
                       </Button>{" "}
                       <Button
-                        className="btn-white btn-icon mb-3 mb-sm-3"
-                        color="default"
+                        className="btn-icon mb-3 mb-sm-3"
+                        color="dark"
+                        tag={Link}
+                        to="/examples"
+                        size="lg"
+                      >
+                        <span className="btn-inner--icon mr-1">
+                          <i className="fa fa-flask" />
+                        </span>
+                        <span className="btn-inner--text">
+                          <span className="text-warning mr-1">Examples</span>
+                        </span>
+                      </Button>{" "}
+                      <Button
+                        className="btn-icon mb-3 mb-sm-3"
+                        color="dark"
                         target="_blank"
                         href="https://www.trufflesuite.com/boxes"
                         size="lg"
@@ -114,7 +119,21 @@ class Top extends React.Component {
                         </span>
                         <span className="btn-inner--text">
                         {/* Update the link once Incubed Truffle Box is ready */}
-                          <span className="mr-1">Truffle with IN3</span>
+                          <span className="text-warning mr-1">Truffle with IN3</span>
+                        </span>
+                      </Button>{" "}
+                      <Button
+                        className="btn-white btn-icon mb-3 mb-sm-3"
+                        color="default"
+                        target="_blank"
+                        href="https://in3.readthedocs.io/en/latest/"
+                        size="lg"
+                      >
+                        <span className="btn-inner--icon mr-1">
+                          <i className="fa fa-book" />
+                        </span>
+                        <span className="btn-inner--text">
+                          Read the Docs
                         </span>
                       </Button>{" "}
                       <Button
@@ -128,21 +147,7 @@ class Top extends React.Component {
                           <i className="fa fa-magic" />
                         </span>
                         <span className="btn-inner--text">
-                          <span className="text-warning mr-1">Incubed Server Setup Wizard</span>
-                        </span>
-                      </Button>{" "}
-                      <Button
-                        className="btn-white btn-icon mb-3 mb-sm-3"
-                        color="default"
-                        target="_blank"
-                        href="https://in3.slock.it/"
-                        size="lg"
-                      >
-                        <span className="btn-inner--icon mr-1">
-                          <i className="fa fa-tachometer" />
-                        </span>
-                        <span className="btn-inner--text">
-                          <span className="text-warning mr-1">Incubed Servers Dashboard</span>
+                          Server Setup Wizard
                         </span>
                       </Button>
                     </div>

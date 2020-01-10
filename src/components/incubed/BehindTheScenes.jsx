@@ -39,17 +39,18 @@ class BehindTheScenes extends React.Component {
                 <p>Note: Put into consideration that in addition to the provided proofs and signatures, Incubed Servers (Nodes) cannot provide fake signatures since there are always <strong>`watch-dogs`</strong> who will be pleased to get the node's deposits in such a case (anyone can act as a watchdog!).</p>
               </Col>
             </Row>
-            <Row>
-              <Col>
+            <Row className="mb-5">
+              <div className="large-section">
                 <img
                   alt="..."
                   className="img-fluid"
                   src={require("assets/img/ill/incubedclient.svg")}
-                /></Col>
+                />
+              </div>
             </Row>
             <Row className="justify-content-start">
-              <Col className="col-5">
-                <Card className="shadow shadow-lg--hover mt--100">
+              <Col className="col-lg-5">
+                <Card className="shadow shadow-lg--hover mt--150">
                   <CardBody className="card-body px-md-4 px-lg-4 px-xl-5 px-2">
                     <Container>
                       <Row className="justify-content-start align-items-center">
@@ -62,7 +63,7 @@ class BehindTheScenes extends React.Component {
                         <Col className="pr-0 pl-2">
                           <div className="h6 text-gray-dark">
                             More details?
-                              </div>
+                          </div>
                         </Col>
                       </Row>
                       <Row className="justify-content-start">
@@ -75,7 +76,7 @@ class BehindTheScenes extends React.Component {
                             <a className="text-gray-dark font-weight-700"
                               target="_blank" rel="noopener noreferrer"
                               href="https://in3.readthedocs.io/en/latest/">Read the Docs</a>.
-                                </div>
+                          </div>
                         </Col>
                       </Row>
                     </Container>

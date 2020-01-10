@@ -6,6 +6,13 @@ p {
 	line-height: $paragraph-line-height;
 } 
 
+@include media-breakpoint-down(md) {
+    .lead {
+        margin-top: 0px !important;
+    }
+}
+
+
 .lead {
 	font-size: $lead-font-size;
   	font-weight: $lead-font-weight;

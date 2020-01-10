@@ -18,17 +18,20 @@ class JsonRpcOneFunctionShow extends React.Component {
 
     render() {
         return (
-            <div className="pb-3">
-                <Button color="primary" className="w-100" onClick={this.toggle} >
-                    <Container>
+            <Container className="pb-3">
+                <Button color="gray-dark" className="w-100" onClick={this.toggle} >
+                    <div>
                         <Row className="align-items-center">
-                            <Col className="text-white h5">
+                            <Col className="text-white h6">
                                 <span className="align-middle">
                                     <i className="fa fa-chevron-right"></i> {" "}
                                     {this.props.item.Url.slice(this.props.item.Url.indexOf('://') + 3)}
                                 </span>
                             </Col>
-                            <Col className="col-4">
+                            <Col className="mb-1">
+                                (Click for more...)
+                            </Col>
+                            <Col className="col-auto">
                                 <Button
                                     className="btn-neutral btn-icon"
                                     color="default"
@@ -44,12 +47,12 @@ class JsonRpcOneFunctionShow extends React.Component {
                                 </Button>
                             </Col>
                         </Row>
-                    </Container>
+                    </div>
                 </Button>
                 <Collapse isOpen={this.state.isOpen}>
                     <Card>
                         <CardBody>
-                            <div><div> Incubed Server: {this.props.item.Url} </div>
+                            <div className="h6"><div> Incubed Server: {this.props.item.Url} </div>
                                 <div>
                                     <pre className="prettyprint">
                                         Request:
@@ -79,7 +82,7 @@ class JsonRpcOneFunctionShow extends React.Component {
                         </CardBody>
                     </Card>
                 </Collapse>
-            </div>
+            </Container>
         );
     }
 }

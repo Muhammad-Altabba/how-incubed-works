@@ -95,7 +95,7 @@ class TopNavbar extends React.Component {
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <NavbarBrand to="/playground" tag={Link}>
-                    Play Ground
+                    Playground
                   </NavbarBrand>
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>

@@ -2,7 +2,6 @@ import React from 'react';
 
 // reactstrap components
 import {
-    Container,
     Row,
     Col
 } from "reactstrap";
@@ -24,7 +23,7 @@ class JsonRpcMultiFunctionsShow extends React.Component {
                             ))}
                         </div>
                         :
-                        <Container className="pb-100 text-center">
+                        <div className="pb-100 text-center">
                             <Row>
                                 <Col>
 
@@ -37,7 +36,7 @@ class JsonRpcMultiFunctionsShow extends React.Component {
 
                                 </Col>
                             </Row>
-                        </Container>
+                        </div>
                     }
                 </div>
         );

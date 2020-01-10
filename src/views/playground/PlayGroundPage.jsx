@@ -45,7 +45,7 @@ class PlayGroundPage extends React.Component {
                   <Row>
                     <Col lg="6">
                       <h1 className="display-3 text-white">
-                        Incubed Play Ground!
+                        Incubed Playground!
                       </h1>
                       <div className="lead text-white">
                         <p className="lead text-white">
